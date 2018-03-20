@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Financial exchange{% endblock title %}
+
+{% block content %}
+
+<div class="panel panel-default" style ="width: 50%; margin:25%;">
+      <div class="panel-heading"style="background-color: Gray;">Transaction</div>
+  <div class="panel-body">
+
+<div class="container-fluid ">
+    <form method="post" action="/transaction">
+         <input type="hidden" name="csrf_token" value="{{csrf_token}}">
+
+ <div class="form-group">
+
+        <input name="recipient"class="form-control" placeholder="Imput recepient email">
+     <br><br><br>
+<input  name ="amount" type="number" class="form-control" placeholder="Value" placeholder="imput value">
+
+ </div>
+
+        <button id ="target">OK</button>
+            </form>
+ </div>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $(this).hide();
+        confirm("Click for confirm transaction");
+
+    });
+
+});
+</script>
+{% endblock content %}
